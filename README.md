@@ -1,16 +1,44 @@
-whisper
-=======
+# Whisper CMS
 
-Whisper CMS
+The web is noisy. Whisper is quiet.
 
-REQUIREMENTS
-=======
+Whisper is a small site engine, ideal for people seeking to maintain static web content in a simple, straightforward, and convenient manner. It lets you manage your web site — whether it’s simple or sophisticated — without the fuss of complex tools or blog-centric bloatware.
+
+Whisper builds your site dynamically, generating it from templates with a small (but highly expandable) set of custom tags. The result is a clean, consistent site that’s easy to manage. Its control panel lets you modify your templates and stylesheet, create and edit pages, and more. Whisper includes [Textile](http://textile.thresholdstate.com/) and [Markdown](http://daringfireball.net/projects/markdown/), so you don’t have to fuss with HTML in order to add content. Whisper stays out of your way.
+
+Whisper is as flexible as it is simple. Your web pages can be generated as HTML, PHP, or any other type of file that you’d like. Whisper is lightweight and efficient, and does not require a database. It sports a simple yet powerful plugin system, allowing for endless customization and expansion. And it’s 100% free to everyone, and always will be.
+
+## Features
+
+* Flat file system — no database required
+* Two modes: dynamic or static file
+* Flexible template system that allows…
+	* any scripting language (PHP, ASP, etc.)
+	* page- and section-specific templates
+* Reusable content
+* Automatic navigation menus
+* Rudimentary news/blog
+* Search
+* Hidden pages
+* Textile and Markdown formatting
+* File uploading and management
+* Random quotes
+
+### Whisper does not (yet) feature…
+
+* Multiple users
+* WYSIWYG (or WYSIWYM) editing
+* Advanced search options (boolean logic, etc.)
+* Full-featured blogging
+* Photo galleries
+
+Comments and trackbacks are noisy. Whisper probably won’t ever have them.
+
+## Requirements
 
 Whisper has been developed and tested using PHP version 4.3.2, though it should work with earlier versions as well.
 
-
-UPGRADING
-=======
+## Upgrading
 
 To upgrade from any version of Whisper to a newer version, simply replace the old core index.php file with the new one (after changing the user name and password within).
 
@@ -24,11 +52,9 @@ To upgrade an existing version of Pages (beta versions 6.x) to Whisper, follow t
 6. Upload the new index.php file, overwriting your existing one on the server. 
 7. Upload whisper.css or things will look ugly. 
 
-It is strongly recommended that you also overwrite your existing configuration file with the one that comes with Whisper. Be sure to backup your old configuration file first (so that you donít lose any data).
+It is strongly recommended that you also overwrite your existing configuration file with the one that comes with Whisper. Be sure to backup your old configuration file first (so that you don't lose any data).
 
-
-NEW INSTALLATION
-=======
+## Installing
 
 Open index.php and change the two variables $username and $password to something that you can easily remember.  Those are the only two variables that you'll need to edit within the script itself; the others can all be changed from within the script's control panel.
 
