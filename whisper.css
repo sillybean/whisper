@@ -1,0 +1,169 @@
+#main {
+	width: 600px;
+	margin: auto;
+	text-align: left;
+}
+.panel {
+	padding: 10px 0;
+	margin: 10px 0px 15px;
+	border-top: 1px solid #ddd;
+	width: 100%;
+	text-align: left;
+	clear: both;
+}
+div.login {
+	width: 300px;
+	padding: 15px;
+	margin: auto;
+	text-align: center;
+}
+div.login p, div.login h1 {
+	text-align: center;
+}
+div.login p {
+	clear: both;
+	padding-top: 5px;
+	overflow: auto;
+}
+div.login label {
+	float: left;
+	width: 75px;
+	text-align: right;
+}
+div.login input {
+	display: block;
+	float: right;
+	width: 210px;
+	text-align: left;
+}
+input, textarea {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	margin: 0px;
+	padding: 0px;
+}
+textarea { 
+	font-size: 1em; 
+}
+div.login input.button {
+	background: #ddd;
+	padding: 0;
+	margin: 0 auto;
+	border-color: #FFF #999 #999 #FFF;
+	border-width: 1px;
+	border-style: solid;
+	width: auto;
+	float: none;
+}
+form {
+	margin: 0px;
+	padding: 0px;
+	display: inline;
+}
+h1, span.title {
+	font-family: Georgia, Times New Roman, Times, serif;
+	font-size: 27px;
+	line-height: 55px;
+	font-weight: normal;
+	text-align: left;
+	text-transform: lowercase;
+	font-style: italic;
+	color: #666;
+    letter-spacing: .08em;
+/*display: block;
+float: left;
+width: auto;*/
+}
+span.subtitle {
+	font-weight: normal;
+	text-transform: lowercase;
+	color: #999;
+line-height: 55px;
+/*display: block;
+float: left;
+width: auto;*/
+}
+.main_nav { 
+	color: #aaa; 
+	text-transform:lowercase;
+	/*display:inline; margin-left:8em;*/
+	line-height: 55px;
+	display: block;
+	float: right;
+	width: auto;
+	margin-top: -55px;
+ }
+.main_nav a, .main_nav a:visited { 
+	color: #999; 
+}
+p {
+	clear: both;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+a:visited {
+	color: #000;
+}
+body {
+	margin: 20px;
+	background-color: #fff;
+}
+body, td, p {
+	color: #666;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 17px;
+	text-align: left;
+}
+table { 
+	margin-top: 1em; 
+	width: 100%; 
+}
+td, th { 
+	padding: 5px; 
+	border-top: 1px solid #dfdfdf; 
+	vertical-align: top; 
+}
+th { 
+	background: #ccc; 
+}
+tr.dark { 
+	background: #eee; 
+}
+tr.light { 
+	background: #fff; 
+}
+table#coreconfig tr.light td { 
+	padding-bottom: 2em; 
+}
+table#panelpagetable td { 
+	padding: 5px; 
+}
+td.pageTable {
+	text-align: center;
+	vertical-align: text-top;
+}
+td.pageTableAlert {
+	text-align: center;
+	font-weight: bold;
+	vertical-align: text-top;
+	border-top: 1px solid #692C26;
+	background-color: #81433D;
+	color: white;
+}
+tr.dark td.pageTableAlert, th.pageTableAlert {
+	background: #74302A; 
+}
+th.pageTableAlert, td.pageTableAlert a {
+	color: #fff;
+}
+.message {
+	color: #f90;
+	font-weight: bold;
+}

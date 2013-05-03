@@ -1,0 +1,278 @@
+0.3 (Stephanie Leary)
+-------
+12/1/07
+Recreated manual file and moved it into the control panel for portability.
+Fixed bugs with apostrophes in page titles.
+New feature: visibility. Unlike show/hide, which merely asks for a password
+	to show hidden pages, invisible pages will not be listed at all outside
+	the control panel. In other words, a hidden page is password-protected;
+	an invisible page is not published.
+Control panel updates:
+	Changed control panel styles (to be quieter); rearranged panels.
+	Added subsection title.
+	Fixed form and table markup across all control panels; made tables' 
+		appearance consistent.
+	Changed charset to UTF-8 throughout.
+	Fixed Textile reference link on editing panel.
+	Added editing panel options for included plugins: drop-down for parent 
+		page, checkboxes for show/hide and visibility.
+Plugin changes:
+	Sections -- Added <!reverse_sections> tag to serve as rudimentary 
+		blog/news function. 
+	Textile and Markdown -- updated to latest versions.
+	File Manager -- ./uploads is now default starting point, and a warning 
+		is displayed when you navigate up to the Whisper root.
+	All -- made tables' appearance consistent.
+New plugins:
+	Quote -- displays a random quote from a list.
+	Search -- provides a search function, available in both control panel 
+		and public pages. New tags: <!search_form> and <!search_results>.
+Added configuration option to show full page database rather than list on main 
+	control panel. 	Added option to limit the list. If more pages exist, a 
+	link to the page database will be appended to the list. (e.g. Page One, 
+	Page Two ... see all pages) The default is 15. 
+Fixed grammatical errors in interface and documentation.
+Updated documentation.
+-------
+
+Below is the changelog that came with Whisper 0.2 serial 1038:
+
+Whisper Change Log (ZachOfAllTrades)
+
+TO DO
+-------
+--clone content or template files
+--replace all English phrases with calls to a getText library, to facilitate 
+translation of the interface into other languages.
+--plugin API for creating pref files
+
+--The File Manager plugin is broken -- I need to straighten out
+some path variables.
+
+--The Layout Browser will have to be modified slightly, or
+perhaps totally rethought.
+
+I have not put together upgrade instructions -- because this is
+not a "release". This is just me making available the updates
+that I've made, so that other people can consider them.
+
+
+
+DONE
+-------------
+6/20/04 v.2 Serial 1038
+BUGFIX: file generation path variable (Thanks John)
+INTERFACE: rearranged main menu of control panel
+
+
+6/15/04 v.2 Serial 1037 -- replaces 1036
+CODE: minor edits for clean reading
+CODE: changes to get_PageRequest() and get_PageLink() 
+-- moving toward better short URL support (thanks Noel)
+PLUGIN: Validator
+PLUGIN: Sections
+
+6/15/04 v.2 Serial 1036
+BUGFIX: load database (Thanks Benjamin)
+CODE: cleanup of plugin display panel
+PLUGIN: advanced menu (Benjamin)
+
+6/13/04 v.2 Serail 1035
+BUGFIX: login javascript fixed for compatibility with multiple browsers (thanks Hedgehog)
+FUNCTIONAL: multiple markup parsers 
+  -- added database field for per-page seelction of markup parser
+  -- 'none' is default option, but default can be set to something else
+  -- user selects markup parser from page edit screen
+PLUGIN: file manager plugin
+
+
+
+6/12/04 v.2 Serail 1034
+BUGFIX: new style tag from v2s1033 did not properly append paths for 
+installation below web root, this has been fixed
+FUNCTIONAL: small javascript on login form to automatically put cursor 
+in textbox for username
+FUNCTIONAL: when renaming default page, the default page setting is updated
+FUNCTIONAL: user is prevented from deleting default page
+BUGFIX: updated reference to function that got renamed
+FUNCTIONAL: added date & time formatting variables to preferences.php
+BUGFIX: changed default tag brackets to a simple HTML comment wrapper 
+  -- textile replaced the '-' character with <del> HTML tags
+
+6/12/04 v.2 Serial 1033
+FUNCTIONAL: added template selection to page editor
+FUNCTIONAL: new function in database API db_updatePageValue($pageName, fieldName, $newValue)
+FUNCTIONAL: style tag added to core to support non-relative stylesheet paths 
+   (necessary for upcoming directoryPalooza, and other "pretty clean URLs"
+CODE: streamlined flow control with core_load() and coreCommands[]
+CODE: streamlined renderPage()
+
+
+6/11/04 v.2 Serial 1032
+CODE: changed default securePass to false
+FUNCTIONAL: separated "create page" into it's own panel
+FUNCTIONAL: markdown plugin
+CODE: changed default tag enclosure from brakets to HTML comments 
+  (for markdown compatibility and to enable proper validation of 
+  templates, as well as automatic hiding of plugin tags that appear in 
+  the template or body, but do not have a loaded plugin)
+
+6/10/04 v.2 Serial 1031
+BUGFIX: pages were not being entered int database when created
+BUGFIX: fread() error on new page creation
+BUGFIX: incorrect error message on login screen
+
+6/10/04 v.2 Serial 1030
+FUNCTIONAL: better looking error messages on login screen
+BUGFIX: fixed url parsing when running in subdirectory
+
+6/9/04 v.2 Serial 1029
+FUNCTIONAL: added Ben's genereate_links function for consistent generation of links to pages
+BUGFIX: strip PHPSESSID from $page
+CODE: expansion of database and plugin APIS
+CODE: sample plugin panel and command functions, sample plugn preferences
+
+6/6/04
+FUNCTIONAL: date / time changes in database input screen are saved back to database
+FUNCTIONAL: date / time plugin to demonstrate plugin API for new tags 
+   will display page date, page time, or page datetime (think: blog entries)
+
+
+6/5 - 6/6/04
+FUNCTIONAL: textile-specific code is removed from the core; any markup parser can now be used
+FUNCTIONAL: API for plugin registration and hooks for callback functions (tags, control panels, commands)
+FUNCTIONAL: API for database/record reading (not yet used throughout core)
+FUNCTIONAL: API for custom field insertion for plugins that need new fields (not complete) 
+SECURITY: timeout on inactivity (time limit to be set in preferences)
+SECURITY: timeout on login prompt to prevent using browser's 'back' button to re-post login form
+
+
+6/3/04 - v.2 serial 1021
+FUNCTIONAL: Preference options to modify how control panel is displayed: the 
+template management and page database panel widgets can be presented in the 
+main control panel or as separate screens (separate preference setting for each).
+
+6/2/04
+
+FUNCTIONAL: Display list of all available search and replace tags (core + plugin) 
+on edit screen when editing pages or templates
+
+FUNCTIONAL: Hidden Page feature enhancement -- if visitor is directed to login 
+page when requesting a hidden page, they will be forwarded to the page upon 
+successful login, rather than arriving at the control panel.
+
+5/31/04
+BUG FIXES!
+FUNCTIONAL: added preference variable that allows you to forward to the default 
+generated page rather than render the default page. This allows for php to be 
+executed on the default page (otherwise it will not execute when site visitor 
+goes to teh whisper directory without specifying a file name).
+
+FUNCTIONAL: template management -- add / edit / delete + any page can use any template
+
+FUNCTIONAL: rebuild database by scanning content directory
+
+
+5/28/04
+CODE: more bug fixes on things that I've broken
+
+FUNCTIONAL: added 'template' field to database so that each page can use any 
+template. This extends the idea of a separate template for the "front" page, so 
+that now any page can have it's own template, or all pages can have the same 
+template, or a group of pages can have one template while another group of pages 
+has a different one.
+   default - output will be generated from the default template
+   none - output is generated based purely on what is put into the edit window_
+   * - output is generated from an template specified
+
+FUNCTIONAL: added ability to create new templates
+
+SECURITY: modified edit screen so that it will ONLY edit files in one of the 
+three appropriate subdirectories
+
+SECURITY: whisper will load/edit files from the three writable directories 
+(configuration, content, layout) even if these files are completely blocked 
+(password protected) from access thorugh web browsers. This works becasue when 
+the script runs, it is not accessing files through http -- it is accessing files 
+through the local file system.
+
+0 
+5/28/04
+-------
+Documentation of code!
+
+SECURITY/FUNCTIONAL: added preference variable for file generation path
+
+
+5/27/04
+--------
+FUNCTIONAL:bug fixes on things that have been broken
+
+SECURITY: added support (optional) to load username and password fields from a 
+file that is stored outside of the web root
+
+SECURITY: path to preference file and database file can no loger be modified in 
+the "settings" window. They are set in a configuration section within the 
+script.
+
+
+5/26/04
+--------
+FUNCTIONAL: renamed config to "preferences" to note the difference between 
+application "configuration" (settings that control how application works), and 
+"preferences" (which are arbitrary and should be allowed to be changed at the 
+user's whim)
+
+SECURITY: added .htaccess to prevent directory listings on Apache webservers
+
+SECURITY/FUNCTIONAL: created directory structure that will make additional 
+security measures possible:
+
+/.htaccess
+/index.php
+/whisper.css
+/configuration/preferences.php
+/configuration/whisperDB
+/content/*
+/layout/default.tmpl
+/layout/none.tmpl
+/layout/*.tmpl
+/plugins/*
+
+-Now the web root (or whatever the location of index.php is), no longer has to 
+be a world-writable directory! (unless you want to use file generation in the 
+same directory as the script)
+
+
+5/25/04
+---------
+FUNCTIONAL: incorporated database table edit into main control panel
+-introduced function get_pageTable() as means of making modular control 
+structures
+
+CODE: bug fix a bunch of out of scope variables
+
+CODE: more breaking down into discrete functions
+
+
+5/24/04
+---------
+FUNCTIONAL: moved control panel cookie crumb links to top of panel (from bottom 
+of edit screens)
+-this reduces number of times to generate same verbiage and link
+-also keeps links in same position "above the fold" on every screen
+
+CODE/SECURITY: removed parameter passing from authenticate()
+-this increases security by preventing authenticated modules from faking the 
+global password
+-it also cleans up function calls
+
+CODE: separated IF THEN flow control of script into a single switch clause, with 
+calls to discrete functions for displaying different control panel screens
+-had to change a lot of variable references to get past broken scope (made 
+extensive use of $GLOBALS['__']
+
+
+5/23/04 
+----
+whisper-core version .1e -- first GPL source that I became aware of

@@ -1,0 +1,49 @@
+I was thinking about the architecture for plugins.
+
+There are right now basically three distinct types of plugins:
+1. plugins that register tags for search and replace functionality when a page is rendered (page_list )
+2. plugins that extend the functionality of the Control Panel (File Manager, Layout Browser).
+3. plugins that make available a class or function library for use by other sections of the script (textile)
+
+For plugins that register tags:
+1. plugin code is included when the script first runs
+2. plugins "register" tags by adding values to an associative array of plugin tags/values
+3. when the page is rendered, the script does a search for tags and replaces them with the values
+
+This works, as is clearly evidenced by the page_list plugin. 
+It works fine for small amounts of content, but it is not a good design for 
+plugins that may come on down the line. It is problematic for a couple reasons:
+1. all of the code for every plugin is loaded _and executed_ before the main script 
+does anything else -- which may be totally unnecessary most of the time, and which 
+could seriously degrade performance if a given plugin with a large return value 
+is used on only one or two pages out of an entire site.
+2. the way it is implemented now, tab characters are forbidden from replacement 
+values (seems trivial now, but you never know how that may impact something later)
+3. there is no ability to utilize the plugin in a generated file -- they can only be 
+used at the time the file is generated.
+
+What I propose would be more flexible for potential plugin authors, and would enable 
+more dynamic plugin design, and at the same time would reduce the processing overhead
+of loading plugins.
+
+Essentially, what I want to do is change the structure of a standard plugin. 
+There would be two types of plugins:
+1. class libraries like textile
+2. function libraries
+   a) those that register tags for replacement when content is rendered
+   b) those that register control panel functions
+
+Class libraries will function like textile, and would be available to the core 
+or to other plugins -- they could also be utilized by inclusion in php pages when 
+file generation is turn on. 
+
+Function libraries would look pretty much like the exitisting plugins, except for the 
+way they get included into the main script when it is parsed. 
+
+Basically for the search and replace type plugins, the script would:
+1. register a series of tags and associated _function_ names (not replacement values)
+2. the redering logic would look for a given tag, and if it is found, then make a call 
+to the associated function which would return the current replacement value
+--see http://www.php.net/manual/en/function.call-user-func.php
+--also http://www.php.net/manual/en/function.return.php
+3. if the tag is not found, the function would not even be called

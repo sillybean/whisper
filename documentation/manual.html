@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Whisper Manual</title></head>
+<body>
+<p>This Manual tries to be helpful, but if you find it lacking in any way, don&rsquo;t 
+  hesitate to ask for help. </p>
+<h2>Getting Started</h2>
+<p> This section will assume that you are installing Whisper for the first time. </p>
+<p> After downloading the Whisper bundle archive extract it with your favorite 
+  zip-extraction utility. </p>
+<p> Next: </p>
+<ol>
+  <li>Open index.php in any text editor. </li>
+  <li> Find the $username and $password variables (they appear after all of the legal text at the top). </li>
+  <li> Change the text between the quotation marks to whatever user name and password you&rsquo;d like to use. </li>
+  <li> Save and close index.php. </li>
+</ol>
+<p> Then: </p>
+<ol>
+  <li>Create a directory on your web server, in a location from which you&rsquo;d like Whisper to serve <br />
+    content. You may also use the root directory of your web server if you&rsquo;d like Whisper to drive <br />
+    your entire site. </li>
+  <li> Change the permissions on the directory to 777. This must be done in order to allow Whisper to <br />
+    write new files within the directory. </li>
+  <li> Upload each of the files that were extracted from the Whisper archive. When you upload <br />
+    these files, be sure to do so in ASCII text mode. You don&rsquo;t have to upload the &ldquo;readme&rdquo; or <br />
+    &ldquo;license&rdquo; file if you&rsquo;d rather not. </li>
+  <li> Change permissions on each of the newly-uploaded files to 777. </li>
+</ol>
+<p> Now you can visit your Whisper site in your browser, and if all went well, you&rsquo;ll see the default page. </p>
+<p> Now, the next thing you&rsquo;ll probably want to do is customize your site. </p>
+<h2>Customization </h2>
+<p> Visit index.php?panel (or index.php?command=panel). Enter your user name, password, and click &ldquo;log 
+  in&rdquo;. You should now see the Whisper Control Panel. </p>
+<p> What follows is a brief explanation of the various Control Panel sections:</p>
+<p> <strong>New Page </strong><br />
+  To create a new page, simply type its name in the box and click the &ldquo;Add&rdquo; button. </p>
+<p><strong>Individual Pages</strong> <br />
+  This is where the list of your pages appears. To edit a page, simply click on its name. The page in bold 
+  is your Front Page, and any italicized pages are hidden. </p>
+<p><strong>Plugins </strong><br />
+  A list of installed plugins appears here. If a plugin is underlined (clickable), you can click on it to 
+  manually activate it. Plugins that are not clickable typically perform some quieter, background 
+  function. </p>
+<p><strong>Information </strong><br />
+  This section provides some miscellaneous information about your current Whisper configuration, allows you to check for updated versions of the software, and provides a link from which you may view your site (in a new window). </p>
+<p><strong>Site Management </strong></p>
+<ul>
+  <li><em>Configuration</em> &ndash; This is where you can adjust various options to customize your Whisper 
+    installation. </li>
+  <li><em>Template</em> &ndash; This is your page template; the appearance of your individual pages is managed by 
+    the layout in this file. </li>
+  <li><em>Stylesheet</em> &ndash; The stylesheet contains formatting rules by which your template abides. </li>
+  <li><em>Database</em> &ndash; The database contains a list of all individual pages. </li>
+</ul>
+<p> There are a few other options that could appear here: </p>
+<ul>
+  <li>If Unique Front Page Mode is on: you&rsquo;ll see Front Page template and Regular Page template <br />
+    (instead of just Template). The Front Page template controls what appears on your Front Page, <br />
+    and the Regular Page template controls what appears on all other pages.</li>
+  <li> If File Generation is on: you&rsquo;ll see Rebuild All Pages, which allows you to manually regenerate <br />
+    each the actual file for each of your individual pages. </li>
+</ul>
+<p> You can begin creating new pages and editing your template/stylesheet immediately. </p>
+<h2> Configuration </h2>
+<p>If you click on the &ldquo;Configuration&rdquo; link from the Control Panel, you&rsquo;ll see the Whisper Configuration 
+  screen. </p>
+<p> Here is a brief explanation of the configurable options: </p>
+<p><em>Front Page &ndash;</em> This is the name of the page that Whisper will regard as the default page. When 
+  someone visits http://yoursite/whisper/ without specifying a specific page name (as in 
+  http://yoursite/whisper/?somepage), they will see the Front Page. </p>
+<p> <em>Unique Front Page Mode &ndash;</em> If you want your Front Page to look different than all of the others, set this 
+  to on. You&rsquo;ll then have two different templates available&mdash;one for your Front Page, and one for all 
+  other pages. </p>
+<p> <em>File Generation &ndash;</em> If turned on, File Generation will create an individual file (html, php, or anything 
+  else) for each of your pages. </p>
+<p> <em>File Extension &ndash;</em> If File Generation is on, this is the file extension that will be appended to your 
+  Whisper-generated files. </p>
+<p> <em>Spaces Separator &ndash;</em> This is the character (or characters) that Whisper will use in place of any spaces in 
+  the names of generated files (if File Generation is turned on). Example: File Generation is on, the File 
+  Extension is set to &ldquo;html&rdquo;, the File Extension is set to an underscore (_), and you have a page called &ldquo;Hello There&rdquo;. The generated file for this page will be called Hello_There.html. </p>
+<p><em>Database File Name &ndash;</em> This is the name of your database file. </p>
+<p><em>Template File Name &ndash;</em> This is the name of your template file. </p>
+<p><em>Stylesheet File Name &ndash;</em> This is the name of your stylesheet. </p>
+<p><em>Editor &ndash; Rows &ndash;</em> This, along with its counterpart, Editor &ndash; Columns, allows you to adjust the height 
+  (rows) and width (columns) of the text editing box in the Whisper Editor. </p>
+<h2>Database </h2>
+<p> The Whisper Database houses information about each of your pages, and allows for some simple 
+  maintenance.</p>
+<p><strong>Renaming Pages</strong> <br />
+  Just type a new name in the box. When the &ldquo;Save Changes&rdquo; button is clicked, the file will be renamed. </p>
+<p><strong>Modifying Creation Dates </strong><br />
+  You can enter a date and time in the &ldquo;Created&rdquo; field for each page. You can enter it in any format you 
+  wish, and Whisper will standardize it for you. </p>
+<p><strong>Hiding Pages </strong><br />
+  This function will be used in future Whisper plugins. At the moment, nothing is really hidden by 
+  checking this box. </p>
+<p><strong>Deleting Pages</strong> <br />
+  If a check is placed in the Delete box beside a page, that page will be deleted when the &ldquo;Save 
+  Changes&rdquo; button is clicked. </p>
+<p> The &ldquo;Advanced Mode&rdquo; is available for advanced users who wish to make bulk changes to their Whisper databases. </p>
+<h2>Editing Pages </h2>
+<p> To edit a page, simply click on its name from the Control Panel. The Whisper Editor appears, and the content of the page is displayed. Once you have made your changes, click the &ldquo;Save this page&rdquo; button to save this page. </p>
+<p> If you want to make the page that&rsquo;s currently being edited your new Front Page, simply place a check in the &ldquo;Make this my new front page&rdquo; box before clicking &ldquo;Save this page&rdquo;. </p>
+<h2 id="textile">Textile Markup</h2>
+<p> Whisper works well with Textile. What&rsquo;s Textile? It&rsquo;s a wonderful way to &ldquo;mark up&rdquo; your text (that is, 
+  to make it bold, italicized, underlined, and so much more) without having to know (or bother with) any 
+  HTML.</p>
+<p> Here&rsquo;s an example of what Textile can do for you: </p>
+<p>The old way: </p>
+<p><code>&lt;p&gt;&lt;a href=&quot;http://www.pagesisthebest.com/pages.html&quot;&gt;&lt;img src=&quot;http://www.pagesisthebest.com/images/pages.jpg&quot; title=&quot;Pages is the best&quot; 
+  alt=&quot;Pages is the best&quot; width=&quot;417&quot; height=&quot;415&quot; /&gt;&lt;/a&gt;&lt;/p&gt; </code></p>
+<p> With Textile: </p>
+<p><code>!http://www.pagesisthebest.com/images/pages.jpg(Pages is the 
+  best)!:http://www.pagesisthebest.com/pages.html </code></p>
+<p> As you can see, Textile makes life easy. Here&rsquo;s a list of everything that it does: </p>
+<h3>Block modifier syntax: </h3>
+<p><strong>Header:</strong> h(1-6). <br />
+  Paragraphs beginning with &lsquo;hn. &rsquo; (where n is 1-6) are wrapped in header tags. <br />
+  Example: h1. Header... &rarr; &lt;h1&gt;Header...&lt;/h1&gt; </p>
+<p><strong>Paragraph:</strong> p. (also applied by default) <br />
+  Example: p. Text &rarr; &lt;p&gt;Text&lt;/p&gt; </p>
+<p><strong>Blockquote:</strong> bq. <br />
+  Example: bq. Block quotation... &rarr; &lt;blockquote&gt;Block quotation...&lt;/blockquote&gt; </p>
+<p><strong>Blockquote with citation:</strong> bq.:http://citation.url<br />
+  Example: bq.:http://textism.com/ Text... &rarr; &lt;blockquote <br />
+  cite=&quot;http://textism.com&quot;&gt;Text...&lt;/blockquote&gt; </p>
+<p><strong>Footnote:</strong> fn(1-100). <br />
+  Example: fn1. Footnote... &rarr; &lt;p id=&quot;fn1&quot;&gt;Footnote...&lt;/p&gt; </p>
+<p><strong>Numeric list: </strong>#, ## <br />
+  Consecutive paragraphs beginning with # are wrapped in ordered list tags. <br />
+  Example: &lt;ol&gt;&lt;li&gt;ordered list&lt;/li&gt;&lt;/ol&gt; </p>
+<p><strong>Bulleted list:</strong> *, ** <br />
+  Consecutive paragraphs beginning with * are wrapped in unordered list tags. <br />
+  Example: &lt;ul&gt;&lt;li&gt;unordered list&lt;/li&gt;&lt;/ul&gt; </p>
+<h3>Phrase modifier syntax: </h3>
+<table>
+  <tr>
+    <td>_emphasis_ </td>
+    <td>&rarr;&lt;em&gt;emphasis&lt;/em&gt; </td>
+  </tr>
+  <tr>
+    <td> __italic__ </td>
+    <td>&rarr;&lt;i&gt;italic&lt;/i&gt; </td>
+  </tr>
+  <tr>
+    <td> *strong* </td>
+    <td>&rarr;&lt;strong&gt;strong&lt;/strong&gt; </td>
+  </tr>
+  <tr>
+    <td> **bold** </td>
+    <td>&rarr;&lt;b&gt;bold&lt;/b&gt; </td>
+  </tr>
+  <tr>
+    <td> ??citation?? </td>
+    <td>&rarr;&lt;cite&gt;citation&lt;/cite&gt; </td>
+  </tr>
+  <tr>
+    <td>&ndash;deleted text&ndash; </td>
+    <td>&rarr;&lt;del&gt;deleted&lt;/del&gt; </td>
+  </tr>
+  <tr>
+    <td> +inserted text+ </td>
+    <td>&rarr;&lt;ins&gt;inserted&lt;/ins&gt; </td>
+  </tr>
+  <tr>
+    <td> ^superscript^ </td>
+    <td>&rarr;&lt;sup&gt;superscript&lt;/sup&gt; </td>
+  </tr>
+  <tr>
+    <td> ~subscript~ </td>
+    <td>&rarr;&lt;sub&gt;subscript&lt;/sub&gt; </td>
+  </tr>
+  <tr>
+    <td> @code@ </td>
+    <td>&rarr;computer code </td>
+  </tr>
+  <tr>
+    <td> %(bob)span% </td>
+    <td>&rarr;&lt;span class=&quot;bob&quot;&gt;span&lt;/span&gt; </td>
+  </tr>
+  <tr>
+    <td> ==notextile== </td>
+    <td>&rarr;leave text alone (do not format) </td>
+  </tr>
+  <tr>
+    <td>&quot;linktext&quot;:url </td>
+    <td>&rarr;&lt;a href=&quot;url&quot;&gt;linktext&lt;/a&gt; </td>
+  </tr>
+  <tr>
+    <td>&quot;linktext(title)&quot;:url </td>
+    <td>&rarr;&lt;a href=&quot;url&quot; title=&quot;title&quot;&gt;linktext&lt;/a&gt; </td>
+  </tr>
+  <tr>
+    <td> !imageurl! </td>
+    <td>&rarr;&lt;img src=&quot;imageurl&quot; /&gt; </td>
+  </tr>
+  <tr>
+    <td> !imageurl(alt text)! </td>
+    <td>&rarr;&lt;img src=&quot;imageurl&quot; alt=&quot;alt text&quot; /&gt; </td>
+  </tr>
+  <tr>
+    <td> !imageurl!:linkurl </td>
+    <td>&rarr;&lt;a href=&quot;linkurl&quot;&gt;&lt;img src=&quot;imageurl&quot; /&gt;&lt;/a&gt; </td>
+  </tr>
+  <tr>
+    <td> ABC(Always Be Closing)</td>
+    <td>&rarr;&lt;acronym title=&quot;Always Be Closing&quot;&gt;ABC&lt;/acronym&gt;</td>
+  </tr>
+</table>
+<h3>Table syntax:</h3>
+<p><em>Simple tables: </em></p>
+<p>|a|simple|table|row| <br />
+  |And|Another|table|row| </p>
+<p> |_. A|_. table|_. header|_.row| <br />
+  |A|simple|table|row| </p>
+<p><em> Tables with attributes: </em></p>
+<p>table{border:1px solid black}. <br />
+  {background:#ddd;color:red}. |{}| | | | </p>
+<p> Applying Attributes: </p>
+<p>Most anywhere Textile code is used, attributes such as arbitrary css style, css classes, and ids can be 
+  applied. The syntax is fairly consistent. </p>
+<p> The following characters quickly alter the alignment of block elements:</p>
+<table>
+  <tr>
+    <td>&lt;</td>
+    <td>&rarr;left align</td>
+    <td>ex.</td>
+    <td>p&lt;. left-aligned para</td>
+  </tr>
+  <tr>
+    <td>&gt;</td>
+    <td>&rarr;right align</td>
+    <td>&nbsp;</td>
+    <td>h3&gt;. right-aligned header 3 </td>
+  </tr>
+  <tr>
+    <td>=</td>
+    <td>&rarr;centred</td>
+    <td>&nbsp;</td>
+    <td>h4=. centred header 4 </td>
+  </tr>
+  <tr>
+    <td>&lt;&gt;</td>
+    <td>&rarr;justified</td>
+    <td>&nbsp;</td>
+    <td>p&lt;&gt;. justified paragraph </td>
+  </tr>
+</table>
+<p> These will change vertical alignment in table cells: </p>
+<table>
+  <tr>
+    <td>^</td>
+    <td>&rarr;top</td>
+    <td>ex.</td>
+    <td>|^. top-aligned table cell| </td>
+  </tr>
+  <tr>
+    <td>&ndash;</td>
+    <td>&rarr;middle</td>
+    <td>&nbsp;</td>
+    <td>|-. middle aligned|</td>
+  </tr>
+  <tr>
+    <td>~</td>
+    <td>&rarr;bottom</td>
+    <td>&nbsp;</td>
+    <td>|~. bottom aligned cell| </td>
+  </tr>
+</table>
+<p>Plain (parentheses) inserted between block syntax and the closing dot-space indicate classes and ids:</p>
+<p>p(hector). paragraph&rarr;&lt;p class=&quot;hector&quot;&gt;paragraph&lt;/p&gt; <br />
+  p(#fluid). paragraph&rarr;&lt;p id=&quot;fluid&quot;&gt;paragraph&lt;/p&gt;</p>
+<p> (classes and ids can be combined) </p>
+<p>p(hector#fluid). paragraph &rarr;&lt;p class=&quot;hector&quot; id=&quot;fluid&quot;&gt;paragraph&lt;/p&gt;</p>
+<p> Curly {brackets} insert arbitrary css style </p>
+<p>p{line-height:18px}. paragraph &rarr;&lt;p style=&quot;line-height:18px&quot;&gt;paragraph&lt;/p&gt; <br />
+  h3{color:red}. header 3 &rarr;&lt;h3 style=&quot;color:red&quot;&gt;header 3&lt;/h3&gt; </p>
+<p>Square [brackets] insert language attributes </p>
+<p>p[no]. paragraph &rarr;&lt;p lang=&quot;no&quot;&gt;paragraph&lt;/p&gt; <br />
+  %[fr]phrase% &rarr;&lt;span lang=&quot;fr&quot;&gt;phrase&lt;/span&gt; </p>
+<p>Usually Textile block element syntax requires a dot and space before the block begins, but since lists don&rsquo;t, they can be styled just using braces: </p>
+<p> #{color:blue} one <br />
+  # big <br />
+  # list </p>
+<p> becomes </p>
+<p>&lt;ol style=&quot;color:blue&quot;&gt; <br />
+  &lt;li&gt;one&lt;/li&gt; <br />
+  &lt;li&gt;big&lt;/li&gt; <br />
+  &lt;li&gt;list&lt;/li&gt; <br />
+  &lt;/ol&gt; </p>
+<p>Using the span tag to style a phrase </p>
+<p>It goes like this, %{color:red}the fourth the fifth% <br />
+  &rarr; It goes like this, &lt;span style=&quot;color:red&quot;&gt;the fourth the fifth&lt;/span&gt; </p>
+<p id="textile"><strong><a href="textile.html"></a></strong></p>
+<h2> Plugins </h2>
+<p>Writing your own plugins for Whisper is easy. For good examples, see the sample and advanced_menu plugins. </p>
+<h3>Sections</h3>
+<p>One plugin in particular, Sections, is extremely powerful in extending your Whisper site.</p>
+<p><strong>Using Sections as includes</strong></p>
+<p>You can use pages as modular chunks of content. By giving a page a parent and setting its template to 'none,' you can then include it in its parent page using the &lt;!sections/&gt; tag. </p>
+<p>Example:</p>
+<p>The included page's title will not be displayed unless you use the &lt;!page_title/&gt; tag. </p>
+<p>Sections used in this manner will not appear in the list of pages generated by the &lt;!main_menu/&gt; tag, since they are children of another page. They will also not appear as independent pages in search results -- their content will be searched as part of their parent pages. </p>
+<p><strong>Blogging with Sections   </strong></p>
+<p>The &lt;!reverse_sections/&gt; tag introduces a rudimentary form of blogging to Whisper. Create your blog posts as you would includes, as described above. Then use the &lt;!reverse_sections/&gt; tag to include the page's sections blog-style: in reverse chronological order with a date stamp (&quot;Posted on...&quot;).</p>
+<p>Example:</p>
+<h3>Search</h3>
+<p>The search function will not look for the output of most Whisper tags -- for example, menus and quotes. If a section has been used as an include, its parent page will be listed in search results. </p>
+<p>The page containing the &lt;!search_results/&gt; tag must  be called &quot;Search&quot; (for now). </p>
+</body>
+</html>
